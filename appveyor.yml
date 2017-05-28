@@ -1,0 +1,25 @@
+build: off
+shallow_clone: false
+platform: 'x64'
+clone_folder: c:\projects\php-simple-enum
+
+environment:
+  matrix:
+    - PHP_VERSION: "5.6"
+    - PHP_VERSION: "7.0"
+    - PHP_VERSION: "7.1"
+
+install:
+  - ps: Invoke-WebRequest "https://raw.githubusercontent.com/ChadSikorra/ps-install-php/master/Install-PHP.ps1" -OutFile "Install-PHP.ps1"
+  - ps: .\Install-PHP.ps1 -Version $Env:PHP_VERSION -Highest -Arch x64
+  - refreshenv
+  - cd C:\projects\php-simple-enum
+  - php -r "readfile('https://getcomposer.org/installer');" | php
+
+before_test:
+  - cd C:\projects\php-simple-enum
+  - php composer.phar install --no-interaction --no-progress --optimize-autoloader --prefer-source --no-ansi
+
+test_script:
+  - cd C:\projects\php-simple-enum
+  - bin\phpspec.bat run

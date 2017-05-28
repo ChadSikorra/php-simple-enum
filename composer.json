@@ -1,0 +1,33 @@
+{
+    "name": "chadsikorra/php-simple-enum",
+    "type": "library",
+    "description": "Provides a simple enum and flag enum for PHP.",
+    "keywords": [
+        "enum"
+    ],
+    "homepage": "https://github.com/ChadSikorra/php-simple-enum",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chad Sikorra",
+            "email": "Chad.Sikorra@gmail.com",
+            "homepage": "http://www.chadsikorra.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~3.0",
+        "friendsofphp/php-cs-fixer": "~1.0"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-4": {"Enums\\": "src/Enums"}
+    },
+    "autoload-dev": {
+        "psr-4": {"fixtures\\": "fixtures/"}
+    }
+}

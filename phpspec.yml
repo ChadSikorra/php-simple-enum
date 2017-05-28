@@ -1,0 +1,4 @@
+fixtures_suite:
+    namespace: fixtures
+    psr4_prefix: fixtures
+    src_path: fixtures
